@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Snapper</title>
+
+<img src="photo.jpg" alt="Left Image">
+<br>
+Photograph as many animals as you can in 20 seconds - but don't get eaten!<br> 
+
+<b>Move with arrows. Take pictures with spacebar</b><br> 
+
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        canvas {
+            border: 1px solid black;
+            width: 550px;  /* 50% increase */
+            height: 550px;  /* 50% increase */
+        }
+        
+        .controls {
+            margin: 10px 0;
+        }
+
+ img#leftImage {
+            max-width: 20%;
+            height: auto;
+            float: left;
+            margin-right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="gameTimer">20s</div>
+<div id="scoreDisplay">Score: 0</div>
+<canvas id="gameCanvas"></canvas>
+
+<div class="controls">
+    <button id="startButton">Start Game</button>
+    <button id="resetButton">Reset</button>
+</div>
+
+
+<script src="scripts.js"></script>
+<script>
+    // Add event listeners for the two buttons:
+    document.getElementById('startButton').addEventListener('click', startPlay);
+    document.getElementById('resetButton').addEventListener('click', restartGame);
+
+    // Initialize board, populate with animals, and draw it on load
+    initializeBoard();
+    populateWithAnimals();
+    drawBoard();
+</script>
+<small>Based on the <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"><i>Game of Life</i></a>
+ by John Horton Conway. Made by Jo Burnham in 2023.</small>
+</body>
+</html>
